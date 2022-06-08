@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun  3 11:38:13 2022
+# Make data base, printed on Sat Jun  4 08:43:47 2022
 
 # Variables
 
@@ -23,7 +23,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1001/vscode-ipc-0cd57e06-9ec1-4726-89a5-ae944eb106ea.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1001/vscode-ipc-d60da948-1377-4d70-bedd-32141c0933a8.sock
 # environment
 VSCODE_CWD = /home/snow-sr/workingOn/syntactic-zebra/syntactic-zebra
 # environment
@@ -49,7 +49,7 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 XDG_DATA_DIRS = /usr/share/pop:/usr/share/gnome:/home/snow-sr/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/
 # environment
-OLDPWD = /home/snow-sr/workingOn/syntactic-zebra/syntactic-zebra/src
+OLDPWD = /home/snow-sr/workingOn/syntactic-zebra
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -81,6 +81,8 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
+WALLABY_PRODUCTION = true
+# environment
 MFLAGS = -pqrR
 # environment
 SSH_AUTH_SOCK = /run/user/1001/keyring/ssh
@@ -105,7 +107,7 @@ ZSH = /home/snow-sr/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 22471
+VSCODE_PID = 28183
 # makefile (from 'Makefile', line 2)
 sources = $(wildcard src/*.c)
 # environment
@@ -113,7 +115,7 @@ XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/1641,unix/pop-os:/tmp/.ICE-unix/1641
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/1567,unix/pop-os:/tmp/.ICE-unix/1567
 # automatic
 *F = $(notdir $*)
 # environment
@@ -153,7 +155,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = 4c92dd84715044c1b099b200c915d66b
+INVOCATION_ID = 6db463a4469a46ff94dd913a3e772639
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
@@ -189,7 +191,7 @@ GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/hyper.desktop
 # makefile
 .DEFAULT_GOAL := test.out
 # environment
-SYSTEMD_EXEC_PID = 1672
+SYSTEMD_EXEC_PID = 1598
 # environment
 DISPLAY = :1
 # environment
@@ -199,9 +201,9 @@ GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1413
+MANAGERPID = 1346
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5512
+GIO_LAUNCHED_DESKTOP_FILE_PID = 26206
 # environment
 PAGER = less
 # environment
@@ -215,7 +217,7 @@ COLORTERM = truecolor
 # environment
 NVM_CD_FLAGS = -q
 # environment
-JOURNAL_STREAM = 8:37967
+JOURNAL_STREAM = 8:37203
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -253,7 +255,7 @@ flags = -g
 # environment
 GDMSESSION = pop
 # variable set hash-table stats:
-# Load=120/1024=12%, Rehash=0, Collisions=8/153=5%
+# Load=121/1024=12%, Rehash=0, Collisions=8/154=5%
 
 # Pattern-specific Variable Values
 
@@ -262,10 +264,10 @@ GDMSESSION = pop
 # Directories
 
 # include: could not be stat'd.
-# src (device 66307, inode 4067017): 8 files, no impossibilities.
+# src (device 66307, inode 4067017): 9 files, no impossibilities.
 # . (device 66307, inode 3803446): 7 files, no impossibilities.
 
-# 15 files, no impossibilities in 3 directories.
+# 16 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -277,6 +279,7 @@ GDMSESSION = pop
 # Files
 
 # Not a target:
+ 
 src/token.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -285,15 +288,22 @@ src/token.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-03 09:04:31.409398032
+#  Last modified 2022-06-04 07:34:09.355707271
 #  File has been updated.
 #  Successfully updated.
+
+uninstall:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 23):
+	-rm /usr/local/bin/zebra
+	-rm /usr/local/bin/sz
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 #  recipe to execute (from 'Makefile', line 18):
 	-rm *.out
 	-rm *.o
@@ -306,13 +316,19 @@ src/lexer.c:
 #  File has not been updated.
 
 # Not a target:
-src/main.c:
+src/abstract.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-src/AST.c:
+src/parser.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/main.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -336,9 +352,9 @@ install:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 14):
 	make
-	cp ./test.out /usr/local/bin/sz
+	cp ./test.out /usr/local/bin/zebra
 
-test.out: src/AST.c src/lexer.c src/main.c src/token.c
+test.out: src/abstract.c src/lexer.c src/main.c src/parser.c src/token.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -346,19 +362,19 @@ test.out: src/AST.c src/lexer.c src/main.c src/token.c
 	gcc $(objects) $(flags) -o $(exec)
 
 # files hash-table stats:
-# Load=11/1024=1%, Rehash=0, Collisions=0/25=0%
+# Load=13/1024=1%, Rehash=0, Collisions=0/28=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 215 B / avg = 8 B
-# current buf: size = 8162 B / used = 215 B / count = 26 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 29 / storage = 257 B / avg = 8 B
+# current buf: size = 8162 B / used = 257 B / count = 29 / avg = 8 B
 
-# strcache performance: lookups = 39 / hit rate = 33%
+# strcache performance: lookups = 43 / hit rate = 32%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=0/39=0%
-# Finished Make data base on Fri Jun  3 11:38:13 2022
+# Load=29/8192=0%, Rehash=0, Collisions=0/43=0%
+# Finished Make data base on Sat Jun  4 08:43:47 2022
 
  

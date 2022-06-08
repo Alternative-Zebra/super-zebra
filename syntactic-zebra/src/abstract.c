@@ -23,7 +23,7 @@ AST_T *init_ast(int type)
 
     /* AST COMPOUND */
     ast->compound_value = (void *)0;
-    ast->compound_value_size = 0;
+    ast->compound_size = 0;
 
     return ast;
 }

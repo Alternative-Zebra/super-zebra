@@ -12,9 +12,13 @@ $(exec): $(objects)
 
 install: 
 	make
-	cp ./test.out /usr/local/bin/sz
+	cp ./test.out /usr/local/bin/zebra
 
 clean: 
 	-rm *.out
 	-rm *.o
 	-rm src/*.o
+
+uninstall: 
+	-rm /usr/local/bin/zebra
+	-rm /usr/local/bin/sz

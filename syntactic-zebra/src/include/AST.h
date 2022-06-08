@@ -30,7 +30,7 @@ typedef struct AST_STRUCT
 
     /* AST COMPOUND */
     struct AST_STRUCT **compound_value;
-    size_t compound_value_size;
+    size_t compound_size;
 
 } AST_T;
 
