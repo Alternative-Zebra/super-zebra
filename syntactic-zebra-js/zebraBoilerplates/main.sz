@@ -1,0 +1,22 @@
+! This is a comment line
+
+! Printing things in the terminal
+heehaw("That's the sound of zebras!");
+
+! Creating functions 
+
+<3 nameOfFunction -> (args){code};
+
+<3 sum -> (a, b){
+    ~results -> a + b; ! saving the results in a variable
+    rtn results; ! returning the results
+}
+
+! Calling functions and creating vars
+
+~results -> sum(1, 2);
+~msg -> "Hey there! Your sum is: ";
+
+heehaw(msg + results);
+
+

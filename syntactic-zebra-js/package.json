@@ -1,0 +1,15 @@
+{
+  "name": "syntactic-zebra",
+  "version": "0.0.1",
+  "description": "A micro-programming language, assembled in Javascript, Runned in Node (or bun!)",
+  "main": "zebra.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon zebra.js"
+  },
+  "keywords": [
+    "Programming Language"
+  ],
+  "author": "João Felipi Cardoso",
+  "license": "ISC"
+}
