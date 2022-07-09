@@ -148,15 +148,12 @@ globalEnv.def("time", function (func) {
 
 if (typeof process != "undefined")
   (function () {
-    globalEnv.def("println", function (val) {
-      console.log(val);
-    });
     globalEnv.def("heehaw", function (val) {
-      console.log(val);
+      return console.log(val);
     });
 
-    globalEnv.def("mult", function (val) {
-      console.log(val * val);
+    globalEnv.def("int", function (val) {
+      return val;
     });
 
     var code = "";

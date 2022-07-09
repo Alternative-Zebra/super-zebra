@@ -5,7 +5,8 @@
   "main": "zebra.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon zebra.js"
+    "dev": "nodemon zebra.js",
+    "test": "echo 'num1 = int(2); num2 = int(9); heehaw(num1 + num2)' | node zebra.js/ "
   },
   "keywords": [
     "Programming Language"
