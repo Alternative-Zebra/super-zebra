@@ -134,6 +134,7 @@ function make_lambda(env, exp) {
 }
 
 /* -----[ entry point for NodeJS ]----- */
+import fs from "fs";
 
 var globalEnv = new Environment();
 
@@ -163,6 +164,11 @@ if (typeof process != "undefined")
       var chunk = process.stdin.read();
       if (chunk) code += chunk;
     });
+
+    // let fileContent = fs.readFileSync(process.argv[2], "utf8");
+    // code = fileContent.split("\n");
+
+    // process.stdin.end();
 
     process.stdin.on("end", function () {
       var ast = parse(TokenStream(InputStream(code)));

@@ -1,6 +1,6 @@
 export function parse(input) {
   var PRECEDENCE = {
-    "=": 1,
+    "->": 1,
     "||": 2,
     "&&": 3,
     "<": 7,
@@ -52,7 +52,7 @@ export function parse(input) {
         input.next();
         return maybe_binary(
           {
-            type: tok.value == "=" ? "assign" : "binary",
+            type: tok.value == "->" ? "assign" : "binary",
             operator: tok.value,
             left: left,
             right: maybe_binary(parse_atom(), his_prec),
