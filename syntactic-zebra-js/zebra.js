@@ -153,6 +153,18 @@ if (typeof process != "undefined")
       return console.log(val);
     });
 
+    globalEnv.def("zebra", function () {
+      return console.log(`
+      you called the zebra!
+      
+      _,,
+      "-.\\=
+         \\\\=   _.~
+        _|/||||)_
+        \\        \\
+      `);
+    });
+
     globalEnv.def("int", function (val) {
       return val;
     });
@@ -160,10 +172,15 @@ if (typeof process != "undefined")
     var code = "";
 
     process.stdin.setEncoding("utf8");
+
     process.stdin.on("readable", function () {
       var chunk = process.stdin.read();
-      if (chunk) code += chunk;
+      if (chunk) {
+        code += chunk;
+      }
     });
+
+    // create a function to get the code from the file
 
     // let fileContent = fs.readFileSync(process.argv[2], "utf8");
     // code = fileContent.split("\n");

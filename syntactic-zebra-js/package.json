@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon zebra.js",
-    "test": "echo 'num1 -> 19; num2 -> 9; heehaw(num1 - num2)' | node zebra.js/ "
+    "test": "echo 'num1 -> 19; num2 -> 9; heehaw(num1 - num2); zebra()' | node zebra.js/ "
   },
   "keywords": [
     "Programming Language"
