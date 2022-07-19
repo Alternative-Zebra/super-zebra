@@ -1,0 +1,6 @@
+num1 -> 2;
+cavalo -> "msg cavalo";
+num2 -> 3;
+
+heehaw(cavalo);
+heehaw(num1 * num2 / num1 * num2);

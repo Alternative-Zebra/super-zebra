@@ -173,12 +173,23 @@ if (typeof process != "undefined")
 
     process.stdin.setEncoding("utf8");
 
-    process.stdin.on("readable", function () {
-      var chunk = process.stdin.read();
-      if (chunk) {
-        code += chunk;
-      }
+    // process.stdin.on("readable", function () {
+    //   var chunk = process.stdin.read();
+    //   if (chunk) {
+    //     code += chunk;
+    //   }
+    // });
+
+    fs.readFile(process.argv[2], "utf-8", (err, data) => {
+      if (err) throw err;
+      code = data;
+      run(code);
     });
+
+    function run(code) {
+      var ast = parse(TokenStream(InputStream(code)));
+      evaluate(ast, globalEnv);
+    }
 
     // create a function to get the code from the file
 
@@ -186,9 +197,4 @@ if (typeof process != "undefined")
     // code = fileContent.split("\n");
 
     // process.stdin.end();
-
-    process.stdin.on("end", function () {
-      var ast = parse(TokenStream(InputStream(code)));
-      evaluate(ast, globalEnv);
-    });
   })();
