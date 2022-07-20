@@ -53,8 +53,8 @@ function evaluate(exp, env) {
         evaluate(exp.right, env)
       );
 
-    case "lambda":
-      return make_lambda(env, exp);
+    case "func":
+      return make_func(env, exp);
 
     case "if":
       var cond = evaluate(exp.cond, env);
@@ -122,15 +122,15 @@ function apply_op(op, a, b) {
   throw new Error("Can't apply operator " + op);
 }
 
-function make_lambda(env, exp) {
-  function lambda() {
+function make_func(env, exp) {
+  function func() {
     var names = exp.vars;
     var scope = env.extend();
     for (var i = 0; i < names.length; ++i)
       scope.def(names[i], i < arguments.length ? arguments[i] : false);
     return evaluate(exp.body, scope);
   }
-  return lambda;
+  return func;
 }
 
 /* -----[ entry point for NodeJS ]----- */

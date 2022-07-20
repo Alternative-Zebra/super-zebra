@@ -31,18 +31,20 @@ export function parse(input) {
   }
   function skip_punc(ch) {
     if (is_punc(ch)) input.next();
-    else input.croak('Expecting punctuation: "' + ch + '"');
+    else input.croak('Ih, deu zebra! \n Expecting punctuation: "' + ch + '"');
   }
   function skip_kw(kw) {
     if (is_kw(kw)) input.next();
-    else input.croak('Expecting keyword: "' + kw + '"');
+    else input.croak('Ih, deu zebra! \n Expecting keyword: "' + kw + '"');
   }
   function skip_op(op) {
     if (is_op(op)) input.next();
-    else input.croak('Expecting operator: "' + op + '"');
+    else input.croak('Ih, deu zebra! \n Expecting operator: "' + op + '"');
   }
   function unexpected() {
-    input.croak("Unexpected token: " + JSON.stringify(input.peek()));
+    input.croak(
+      "Ihhhh, deu zebra! \n Unexpected token: " + JSON.stringify(input.peek())
+    );
   }
   function maybe_binary(left, my_prec) {
     var tok = is_op();
@@ -105,9 +107,9 @@ export function parse(input) {
     }
     return ret;
   }
-  function parse_lambda() {
+  function parse_func() {
     return {
-      type: "lambda",
+      type: "func",
       vars: delimited("(", ")", ",", parse_varname),
       body: parse_expression(),
     };
@@ -133,9 +135,9 @@ export function parse(input) {
       if (is_punc("{")) return parse_prog();
       if (is_kw("if")) return parse_if();
       if (is_kw("true") || is_kw("false")) return parse_bool();
-      if (is_kw("lambda") || is_kw("λ")) {
+      if (is_kw("func") || is_kw("@")) {
         input.next();
-        return parse_lambda();
+        return parse_func();
       }
       var tok = input.next();
       if (tok.type == "var" || tok.type == "num" || tok.type == "str")

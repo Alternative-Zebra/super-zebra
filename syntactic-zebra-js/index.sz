@@ -1,6 +1,12 @@
-num1 -> 2;
-cavalo -> "msg cavalo";
-num2 -> 3;
+fibonnaci -> @(n){
+    if n < 2 then
+        n
+    else 
+        fibonnaci (n - 1) + fibonnaci (n - 2);
+};
 
-heehaw(cavalo);
-heehaw(num1 * num2 / num1 * num2);
+media -> @(n1, n2){
+    (n1 + n2) / 2;
+};
+
+heehaw(media(7, 5));

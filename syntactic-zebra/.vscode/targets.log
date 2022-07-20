@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jun  4 08:43:47 2022
+# Make data base, printed on Mon Jul  4 08:42:47 2022
 
 # Variables
 
@@ -23,9 +23,9 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1001/vscode-ipc-d60da948-1377-4d70-bedd-32141c0933a8.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1001/vscode-ipc-0ac8024d-267d-4510-9fa0-f561c6a16b97.sock
 # environment
-VSCODE_CWD = /home/snow-sr/workingOn/syntactic-zebra/syntactic-zebra
+VSCODE_CWD = /home/snow-sr
 # environment
 WINDOWPATH = 2
 # environment
@@ -49,7 +49,7 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 XDG_DATA_DIRS = /usr/share/pop:/usr/share/gnome:/home/snow-sr/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/
 # environment
-OLDPWD = /home/snow-sr/workingOn/syntactic-zebra
+OLDPWD = /home/snow-sr
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -59,7 +59,7 @@ VSCODE_LOG_STACK = false
 # environment
 NVM_INC = /home/snow-sr/.nvm/versions/node/v18.3.0/include/node
 # environment
-VSCODE_CODE_CACHE_PATH = /home/snow-sr/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = /home/snow-sr/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
 LANG = C
 # environment
@@ -80,8 +80,6 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
-# environment
-WALLABY_PRODUCTION = true
 # environment
 MFLAGS = -pqrR
 # environment
@@ -107,7 +105,7 @@ ZSH = /home/snow-sr/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 28183
+VSCODE_PID = 17043
 # makefile (from 'Makefile', line 2)
 sources = $(wildcard src/*.c)
 # environment
@@ -115,7 +113,7 @@ XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/1567,unix/pop-os:/tmp/.ICE-unix/1567
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/1674,unix/pop-os:/tmp/.ICE-unix/1674
 # automatic
 *F = $(notdir $*)
 # environment
@@ -124,8 +122,6 @@ CHROME_DESKTOP = code-url-handler.desktop
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1001/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
-# environment
-P9K_TTY = old
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # default
@@ -143,7 +139,7 @@ objects = $(sources: .c=.o)
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-SHLVL = 1
+SHLVL = 0
 # environment
 MAKELEVEL := 0
 # default
@@ -155,13 +151,11 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = 6db463a4469a46ff94dd913a3e772639
+INVOCATION_ID = 3e3ee7538df24385884b2d717fd15da6
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = snow-sr
-# environment
-TERM_PROGRAM = Hyper
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
@@ -173,7 +167,7 @@ GTK_IM_MODULE = ibus
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LS_COLORS = 
 # automatic
 +F = $(notdir $+)
 # environment
@@ -181,17 +175,17 @@ LESS = -R
 # environment
 DESKTOP_SESSION = pop
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = Unity
+ORIGINAL_XDG_CURRENT_DESKTOP = pop:GNOME
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
 LOGNAME = snow-sr
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/hyper.desktop
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # makefile
 .DEFAULT_GOAL := test.out
 # environment
-SYSTEMD_EXEC_PID = 1598
+SYSTEMD_EXEC_PID = 1693
 # environment
 DISPLAY = :1
 # environment
@@ -201,23 +195,21 @@ GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1346
+MANAGERPID = 1453
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 26206
+GIO_LAUNCHED_DESKTOP_FILE_PID = 17043
 # environment
 PAGER = less
 # environment
-_ = /usr/bin/code
+_ = /usr/share/code/code
 # environment
 XDG_RUNTIME_DIR = /run/user/1001
 # environment
 GPG_AGENT_INFO = /run/user/1001/gnupg/S.gpg-agent:0:1
 # environment
-COLORTERM = truecolor
-# environment
 NVM_CD_FLAGS = -q
 # environment
-JOURNAL_STREAM = 8:37203
+JOURNAL_STREAM = 8:38931
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -229,33 +221,23 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1001/vscode-c95a7fb4-1.67.2-main.sock
-# environment
-TERM = xterm-256color
+VSCODE_IPC_HOOK = /run/user/1001/vscode-c95a7fb4-1.68.1-main.sock
 # default
 .RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
 # default
 SUFFIXES := 
-# environment
-_P9K_TTY = /dev/pts/0
-# environment
-VSCODE_CLI = 1
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
 XDG_MENU_PREFIX = gnome-
-# environment
-TERM_PROGRAM_VERSION = 3.2.3
 # makefile (from 'Makefile', line 4)
 flags = -g 
 # environment
 GDMSESSION = pop
 # variable set hash-table stats:
-# Load=121/1024=12%, Rehash=0, Collisions=8/154=5%
+# Load=112/1024=11%, Rehash=0, Collisions=6/145=4%
 
 # Pattern-specific Variable Values
 
@@ -264,10 +246,10 @@ GDMSESSION = pop
 # Directories
 
 # include: could not be stat'd.
-# src (device 66307, inode 4067017): 9 files, no impossibilities.
+# src (device 66307, inode 4067017): 10 files, no impossibilities.
 # . (device 66307, inode 3803446): 7 files, no impossibilities.
 
-# 16 files, no impossibilities in 3 directories.
+# 17 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -279,7 +261,6 @@ GDMSESSION = pop
 # Files
 
 # Not a target:
- 
 src/token.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -300,6 +281,7 @@ uninstall:
 	-rm /usr/local/bin/zebra
 	-rm /usr/local/bin/sz
 
+ 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -308,6 +290,12 @@ clean:
 	-rm *.out
 	-rm *.o
 	-rm src/*.o
+
+# Not a target:
+src/visitor.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/lexer.c:
@@ -354,7 +342,7 @@ install:
 	make
 	cp ./test.out /usr/local/bin/zebra
 
-test.out: src/abstract.c src/lexer.c src/main.c src/parser.c src/token.c
+test.out: src/abstract.c src/lexer.c src/main.c src/parser.c src/token.c src/visitor.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -362,19 +350,19 @@ test.out: src/abstract.c src/lexer.c src/main.c src/parser.c src/token.c
 	gcc $(objects) $(flags) -o $(exec)
 
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/28=0%
+# Load=14/1024=1%, Rehash=0, Collisions=0/30=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 29 / storage = 257 B / avg = 8 B
-# current buf: size = 8162 B / used = 257 B / count = 29 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 281 B / avg = 9 B
+# current buf: size = 8162 B / used = 281 B / count = 31 / avg = 9 B
 
-# strcache performance: lookups = 43 / hit rate = 32%
+# strcache performance: lookups = 45 / hit rate = 31%
 # hash-table stats:
-# Load=29/8192=0%, Rehash=0, Collisions=0/43=0%
-# Finished Make data base on Sat Jun  4 08:43:47 2022
+# Load=31/8192=0%, Rehash=0, Collisions=0/45=0%
+# Finished Make data base on Mon Jul  4 08:42:47 2022
 
  

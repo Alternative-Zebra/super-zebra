@@ -1,6 +1,6 @@
 export function TokenStream(input) {
   var current = null;
-  var keywords = " if then else lambda λ true false ";
+  var keywords = " if then else kick @ true false ";
   return {
     next: next,
     peek: peek,
@@ -14,7 +14,7 @@ export function TokenStream(input) {
     return /[0-9]/i.test(ch);
   }
   function is_id_start(ch) {
-    return /[a-zλ_]/i.test(ch);
+    return /[a-z@_]/i.test(ch);
   }
   function is_id(ch) {
     return is_id_start(ch) || "?!-<>=0123456789".indexOf(ch) >= 0;

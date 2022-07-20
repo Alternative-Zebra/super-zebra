@@ -1,8 +1,10 @@
 #include "include/AST.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 AST_T *init_ast(int type)
 {
+    // printf("init_ast\n");
     AST_T *ast = calloc(1, sizeof(struct AST_STRUCT));
     ast->type = type;
 
@@ -24,6 +26,6 @@ AST_T *init_ast(int type)
     /* AST COMPOUND */
     ast->compound_value = (void *)0;
     ast->compound_size = 0;
-
+    // printf("end_ast\n");
     return ast;
 }

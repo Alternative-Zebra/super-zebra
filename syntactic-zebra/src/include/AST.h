@@ -10,7 +10,8 @@ typedef struct AST_STRUCT
         AST_FUNCTION_CALL,
         AST_VARIABLE,
         AST_STRING,
-        AST_COMPOUND
+        AST_COMPOUND,
+        AST_NOOP, // No operation
     } type;
 
     /* AST VARIABLE DEF */

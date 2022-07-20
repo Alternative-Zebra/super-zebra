@@ -39,6 +39,8 @@ AST_T *parser_parse_statement(parser_t *parser)
     case TOKEN_ID:
         return parser_parse_id(parser);
     }
+
+    return init_ast(AST_NOOP);
 }
 
 AST_T *parser_parse_statements(parser_t *parser)
@@ -48,14 +50,22 @@ AST_T *parser_parse_statements(parser_t *parser)
 
     AST_T *ast_statement = parser_parse_statement(parser);
     compound->compound_value[0] = ast_statement;
+    compound->compound_size += 1;
 
     while (parser->current_token->type == TOKEN_SEMI)
     {
         parser_eat(parser, TOKEN_SEMI);
+
         AST_T *ast_statement = parser_parse_statement(parser);
-        compound->compound_size += 1;
-        compound->compound_value = calloc(compound->compound_size, compound->compound_size * sizeof(struct AST_STRUCT *));
-        compound->compound_value[compound->compound_size - 1] = ast_statement;
+
+        if (ast_statement)
+        {
+            compound->compound_size += 1;
+            compound->compound_value = realloc(
+                compound->compound_value,
+                compound->compound_size * sizeof(struct AST_STRUCT *));
+            compound->compound_value[compound->compound_size - 1] = ast_statement;
+        }
     }
 
     return compound;
@@ -70,6 +80,8 @@ AST_T *parser_parse_expr(parser_t *parser)
     case TOKEN_ID:
         return parser_parse_id(parser);
     }
+
+    return init_ast(AST_NOOP);
 }
 
 AST_T *parser_parse_factor(parser_t *parser)
@@ -83,13 +95,15 @@ AST_T *parser_parse_term(parser_t *parser)
 AST_T *parser_parse_function_call(parser_t *parser)
 {
     AST_T *function_call = init_ast(AST_FUNCTION_CALL);
-    parser_eat(parser, TOKEN_LPAREN);
+
     function_call->function_call_name = parser->prev_token->value;
+    parser_eat(parser, TOKEN_LPAREN);
 
     function_call->function_call_arguments = calloc(1, sizeof(struct AST_STRUCT *));
 
     AST_T *ast_expr = parser_parse_expr(parser);
     function_call->function_call_arguments[0] = ast_expr;
+    function_call->function_call_arguments_size += 1;
 
     while (parser->current_token->type == TOKEN_COMMA)
     {
@@ -117,6 +131,7 @@ AST_T *parser_parse_variable_def(parser_t *parser)
     AST_T *variable_definition_value = parser_parse_expr(parser);
 
     AST_T *variable_def = init_ast(AST_VARIABLE_DEFINITION);
+    printf("DDDD %s\n", variable_definition_value->variable_name);
     variable_def->variable_name = variable_definition_variable_name;
     variable_def->variable_definition_value = variable_definition_value;
 
@@ -129,9 +144,13 @@ AST_T *parser_parse_variable(parser_t *parser)
     parser_eat(parser, TOKEN_ID); // expecting the var or the function call name
 
     if (parser->current_token->type == TOKEN_LPAREN)
+    {
         return parser_parse_function_call(parser);
+    }
 
     AST_T *ast_variable = init_ast(AST_VARIABLE);
+    printf("EEEEE %s\n", parser->current_token->value);
+
     ast_variable->variable_name = parser->current_token->value;
 
     return ast_variable;
