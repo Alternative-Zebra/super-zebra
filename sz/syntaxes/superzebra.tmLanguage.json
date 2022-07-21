@@ -1,0 +1,41 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Super Zebra",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.superzebra",
+					"match": "/teste|@|heehaw|zebra|then|else|if|teste/"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.superzebra",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.superzebra",
+					"match": "\\\\."
+				}
+			]
+		},
+		"numbers": {
+			"name": "constant.numeric.superzebra",
+			"match": "\\b(?<!\\.)\\d+\\b"
+		}
+	},
+	"scopeName": "source.sz"
+}

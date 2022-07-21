@@ -1,0 +1,25 @@
+{
+    "name": "sz",
+    "displayName": "SuperZebra",
+    "description": "Colorizer for zebra!",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.69.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "superzebra",
+            "aliases": ["Super Zebra", "superzebra"],
+            "extensions": [".sz"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "superzebra",
+            "scopeName": "source.sz",
+            "path": "./syntaxes/superzebra.tmLanguage.json"
+        }]
+    }
+}
