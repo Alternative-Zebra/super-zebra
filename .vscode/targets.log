@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul 21 07:24:16 2022
+# Make data base, printed on Fri Jul 22 11:39:44 2022
 
 # Variables
 
@@ -16,6 +16,8 @@ make: *** No rule to make target 'all'.  Stop.
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = pop
 # environment
@@ -99,13 +101,13 @@ MAKEFILE_LIST :=
 # environment
 ZSH = /home/snow-sr/.oh-my-zsh
 # environment
-VSCODE_PID = 3729
+VSCODE_PID = 22990
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/1953,unix/pop-os:/tmp/.ICE-unix/1953
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/1987,unix/pop-os:/tmp/.ICE-unix/1987
 # automatic
 *F = $(notdir $*)
 # environment
@@ -141,7 +143,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = c9f8bd2e6dc24542a0f89197eae71682
+INVOCATION_ID = 9d42939ca24f404c875382d583619b01
 # environment
 USERNAME = snow-sr
 # environment
@@ -171,7 +173,7 @@ GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 1972
+SYSTEMD_EXEC_PID = 2006
 # environment
 DISPLAY = :1
 # environment
@@ -181,9 +183,9 @@ GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1724
+MANAGERPID = 1766
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3729
+GIO_LAUNCHED_DESKTOP_FILE_PID = 22990
 # environment
 PAGER = less
 # environment
@@ -195,7 +197,7 @@ GPG_AGENT_INFO = /run/user/1001/gnupg/S.gpg-agent:0:1
 # environment
 NVM_CD_FLAGS = -q
 # environment
-JOURNAL_STREAM = 8:35342
+JOURNAL_STREAM = 8:39295
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -221,7 +223,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = pop
 # variable set hash-table stats:
-# Load=104/1024=10%, Rehash=0, Collisions=3/131=2%
+# Load=105/1024=10%, Rehash=0, Collisions=3/132=2%
 
 # Pattern-specific Variable Values
 
@@ -229,9 +231,9 @@ GDMSESSION = pop
 
 # Directories
 
-# . (device 66307, inode 3692702): 6 files, no impossibilities.
+# . (device 66307, inode 3692702): 8 files, no impossibilities.
 
-# 6 files, no impossibilities in 1 directories.
+# 8 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -280,14 +282,14 @@ GNUmakefile:
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
-
-# strcache buffers: 1 (0) / strings = 14 / storage = 138 B / avg = 9 B
  
-# current buf: size = 8162 B / used = 138 B / count = 14 / avg = 9 B
 
-# strcache performance: lookups = 17 / hit rate = 17%
+# strcache buffers: 1 (0) / strings = 16 / storage = 159 B / avg = 9 B
+# current buf: size = 8162 B / used = 159 B / count = 16 / avg = 9 B
+
+# strcache performance: lookups = 19 / hit rate = 15%
 # hash-table stats:
-# Load=14/8192=0%, Rehash=0, Collisions=0/17=0%
-# Finished Make data base on Thu Jul 21 07:24:16 2022
+# Load=16/8192=0%, Rehash=0, Collisions=0/19=0%
+# Finished Make data base on Fri Jul 22 11:39:44 2022
 
  
