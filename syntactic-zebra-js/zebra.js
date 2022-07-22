@@ -1,7 +1,7 @@
 import { parse } from "./functions/parser.js";
 import { TokenStream } from "./functions/tokenStream.js";
 import { InputStream } from "./functions/inputStream.js";
-
+var code = "";
 class Environment {
   constructor(parent) {
     this.vars = Object.create(parent ? parent.vars : null);
@@ -133,68 +133,63 @@ function make_func(env, exp) {
   return func;
 }
 
-/* -----[ entry point for NodeJS ]----- */
+/* -----[ global function in zebra ]----- */
+
 import fs from "fs";
+import chalk from "chalk";
+import ReadLine from "readline";
+var rl = ReadLine.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 var globalEnv = new Environment();
 
-globalEnv.def("time", function (func) {
-  try {
-    console.time("time");
-    return func();
-  } finally {
-    console.timeEnd("time");
-  }
+globalEnv.def("heehaw", function (val) {
+  return console.log(val);
 });
 
-if (typeof process != "undefined")
-  (function () {
-    globalEnv.def("heehaw", function (val) {
-      return console.log(val);
-    });
-
-    globalEnv.def("zebra", function () {
-      return console.log(`
-      you called the zebra!
-      
+globalEnv.def("zebra", function () {
+  return console.log(`
+      you called the ${
+        chalk.bgWhite.black("Z") +
+        chalk.bgBlack.white.bold("E") +
+        chalk.bgWhite.black("B") +
+        chalk.bgBlack.white.bold("R") +
+        chalk.bgWhite.black("A")
+      }!
       _,,
       "-.\\=
          \\\\=   _.~
         _|/||||)_
-        \\        \\
+        \\\        \\\
+     
       `);
-    });
+});
 
-    globalEnv.def("int", function (val) {
-      return val;
-    });
+globalEnv.def("lion", () => {
+  process.exit();
+});
 
-    var code = "";
+// process argv 2 in this case is the file name or path
+if (process.argv[2]) {
+  fs.readFile(process.argv[2], "utf-8", (err, data) => {
+    if (err) throw err;
+    code = data;
+    run(code);
+  });
+} else {
+  consoleProgramming();
+}
 
-    process.stdin.setEncoding("utf8");
+function consoleProgramming() {
+  rl.question("zebra> ", (code) => {
+    run(code);
+    consoleProgramming();
+  });
+}
 
-    // process.stdin.on("readable", function () {
-    //   var chunk = process.stdin.read();
-    //   if (chunk) {
-    //     code += chunk;
-    //   }
-    // });
-
-    fs.readFile(process.argv[2], "utf-8", (err, data) => {
-      if (err) throw err;
-      code = data;
-      run(code);
-    });
-
-    function run(code) {
-      var ast = parse(TokenStream(InputStream(code)));
-      evaluate(ast, globalEnv);
-    }
-
-    // create a function to get the code from the file
-
-    // let fileContent = fs.readFileSync(process.argv[2], "utf8");
-    // code = fileContent.split("\n");
-
-    // process.stdin.end();
-  })();
+function run(code) {
+  var ast = parse(TokenStream(InputStream(code)));
+  evaluate(ast, globalEnv);
+}
