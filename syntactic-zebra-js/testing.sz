@@ -1,0 +1,17 @@
+showLista -> @(x){
+    heehaw(x);
+};
+
+lista -> "aaa";
+
+showLista(lista);
+
+lista -> "bbb";
+
+showLista(lista);
+
+heehaw(1 + 3 / 4 * 16 + 25 - 43);
+
+zebra();
+
+lion();

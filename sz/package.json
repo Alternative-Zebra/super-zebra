@@ -10,16 +10,29 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "superzebra",
-            "aliases": ["Super Zebra", "superzebra"],
-            "extensions": [".sz"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "superzebra",
-            "scopeName": "source.sz",
-            "path": "./syntaxes/superzebra.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "superzebra",
+                "aliases": [
+                    "Super Zebra",
+                    "superzebra"
+                ],
+                "extensions": [
+                    ".sz"
+                ],
+                "configuration": "./language-configuration.json",
+                "icon": {
+                    "light": "./andOtherZebraIcon.svg",
+                    "dark": "./andOtherZebraIcon.svg"
+                }
+            }
+        ],
+        "grammars": [
+            {
+                "language": "superzebra",
+                "scopeName": "source.sz",
+                "path": "./syntaxes/superzebra.tmLanguage.json"
+            }
+        ]
     }
 }

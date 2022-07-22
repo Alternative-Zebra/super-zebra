@@ -137,8 +137,9 @@ function make_func(env, exp) {
 
 import fs from "fs";
 import chalk from "chalk";
-import ReadLine from "readline";
-var rl = ReadLine.createInterface({
+import * as readline from "node:readline/promises";
+
+var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });

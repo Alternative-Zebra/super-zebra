@@ -1,3 +1,15 @@
-num1 -> 12;
-num2 -> 13; 
-heehaw(num1 + num2);
+# Isso é um comentário!
+isso -> "é uma variável!";
+
+funcao -> @(){
+    heehaw("isso é uma função") # e heehaw é nossa função de print
+};
+
+funcao(); # é como chamamos nossas funções
+
+zebra(); #é um easter egg que imprime uma zebra no terminal!
+
+lion(); # é a função que mata o processo de execução da Zebra!
+
+
+

@@ -10,6 +10,18 @@
 		},
 		{
 			"include": "#numbers"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#variables"
 		}
 	],
 	"repository": {
@@ -35,6 +47,23 @@
 		"numbers": {
 			"name": "constant.numeric.superzebra",
 			"match": "\\b(?<!\\.)\\d+\\b"
+		},
+		"comments": {
+			"name": "comment.line",
+			"begin": "#",
+			"end": "$\\n?|\\Z"
+		},
+		"operators": {
+			"name": "keyword.operator.superzebra",
+			"match": "\\+|\\-|\\*|\\/|\\^|\\%|\\=|\\!|\\<|\\>|\\&|\\|"
+		},
+		"functions": {
+			"name": "support.function.superzebra",
+			"match": "\\b(?<!\\.)[A-Za-z_]\\w*\\b"
+		},
+		"variables": {
+			"name": "variable.other.superzebra",
+			"match": "\\b(?<!\\.)[A-Za-z_]\\w*\\b"
 		}
 	},
 	"scopeName": "source.sz"
