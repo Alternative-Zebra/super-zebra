@@ -84,7 +84,8 @@ function evaluate(exp, env) {
 
 function apply_op(op, a, b) {
   function num(x) {
-    if (typeof x != "number") throw new Error("Expected number but got " + x);
+    if (typeof x != "number")
+      throw new Error("Deu zebra! \n expected number but got " + x);
     return x;
   }
   function div(x) {
@@ -137,7 +138,7 @@ function make_func(env, exp) {
 
 import fs from "fs";
 import chalk from "chalk";
-import * as readline from "node:readline/promises";
+import * as readline from "readline";
 
 var rl = readline.createInterface({
   input: process.stdin,
@@ -192,5 +193,7 @@ function consoleProgramming() {
 
 function run(code) {
   var ast = parse(TokenStream(InputStream(code)));
+  var val = evaluate(ast, globalEnv);
+  console.log(val);
   evaluate(ast, globalEnv);
 }

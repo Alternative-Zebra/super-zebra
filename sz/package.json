@@ -3,6 +3,12 @@
     "displayName": "SuperZebra",
     "description": "Colorizer for zebra!",
     "version": "0.0.1",
+    "author": "João Felipi Cardoso",
+    "publisher": "João Felipi Cardoso (snow-sr)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Alternative-Zebra/super-zebra"
+    },
     "engines": {
         "vscode": "^1.69.0"
     },
