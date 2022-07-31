@@ -16,6 +16,7 @@
   "dependencies": {
     "chalk": "^5.0.1",
     "fs": "^0.0.1-security",
+    "johnny-five": "^2.1.0",
     "readline": "^1.3.0"
   }
 }
