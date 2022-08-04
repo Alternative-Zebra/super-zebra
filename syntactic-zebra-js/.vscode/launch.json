@@ -11,7 +11,19 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/zebra.js"
+            "program": "${workspaceFolder}/zebra.js",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Arduino",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/zebra.js",
+            "args": ["arduino.sz", "arduino"],
+            "console": "integratedTerminal"
         }
     ]
 }
