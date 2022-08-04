@@ -2,6 +2,7 @@ import { parse } from "./functions/parser.js";
 import { TokenStream } from "./functions/tokenStream.js";
 import { InputStream } from "./functions/inputStream.js";
 var code = "";
+var FUNCTIONS = [];
 class Environment {
   constructor(parent) {
     this.vars = Object.create(parent ? parent.vars : null);
@@ -55,6 +56,9 @@ function evaluate(exp, env) {
 
     case "func":
       return make_func(env, exp);
+
+    case "arduino":
+      return make_arduino_env(env, exp).apply(null, env);
 
     case "if":
       var cond = evaluate(exp.cond, env);
@@ -134,10 +138,25 @@ function make_func(env, exp) {
   return func;
 }
 
+import five from "johnny-five";
+
+function make_arduino_env(env, exp) {
+  function arduino() {
+    var scope = env.extend();
+    var functions = exp.prog;
+
+    functions.forEach((func) => {
+      evaluate(func, env);
+    });
+  }
+  return arduino;
+}
+
 /* -----[ global function in zebra ]----- */
 
 import fs from "fs";
 import chalk from "chalk";
+
 import * as readline from "readline";
 
 var rl = readline.createInterface({
@@ -173,6 +192,18 @@ globalEnv.def("lion", () => {
   process.exit();
 });
 
+globalEnv.def("ledOn", (pin) => {
+  console.log("added led with pin" + pin);
+  let led = new five.Led(pin).on();
+});
+
+globalEnv.def("ledOff", (pin) => {
+  console.log("removed led with pin" + pin);
+  let led = new five.Led(pin).off();
+});
+
+// ==================================================================== //
+
 // process argv 2 in this case is the file name or path
 if (process.argv[2]) {
   fs.readFile(process.argv[2], "utf-8", (err, data) => {
@@ -186,14 +217,27 @@ if (process.argv[2]) {
 
 function consoleProgramming() {
   rl.question("zebra> ", (code) => {
+    if (code.includes("arduino")) {
+      console.log("Can't use arduino expressions when using the console");
+      process.exit();
+    }
     run(code);
     consoleProgramming();
   });
 }
 
 function run(code) {
-  var ast = parse(TokenStream(InputStream(code)));
-  var val = evaluate(ast, globalEnv);
-  console.log(val);
-  evaluate(ast, globalEnv);
+  if (process.argv[3] == "arduino") {
+    console.log("zebra> " + "Arduino mode enabled");
+    var board = new five.Board();
+    board.on("ready", () => {
+      var ast = parse(TokenStream(InputStream(code)));
+      evaluate(ast, globalEnv);
+    });
+  } else {
+    var ast = parse(TokenStream(InputStream(code)));
+    evaluate(ast, globalEnv);
+  }
 }
+
+// ==================================================================== //

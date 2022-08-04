@@ -1,6 +1,6 @@
 export function TokenStream(input) {
   var current = null;
-  var keywords = " if then else kick @ true false ";
+  var keywords = " arduino ard if then else kick @ true false ";
   return {
     next: next,
     peek: peek,
@@ -23,7 +23,7 @@ export function TokenStream(input) {
     return "+-*/%=&|<>!".indexOf(ch) >= 0;
   }
   function is_punc(ch) {
-    return ",;(){}[]".indexOf(ch) >= 0;
+    return ",;(){}[]µ".indexOf(ch) >= 0;
   }
   function is_whitespace(ch) {
     return " \t\n".indexOf(ch) >= 0;

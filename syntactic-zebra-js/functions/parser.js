@@ -13,7 +13,6 @@ export function parse(input) {
     "-": 10,
     "*": 20,
     "/": 20,
-    "%": 20,
   };
   var FALSE = { type: "bool", value: false };
   return parse_toplevel();
@@ -114,6 +113,12 @@ export function parse(input) {
       body: parse_expression(),
     };
   }
+  function parse_arduino_start() {
+    var prog = delimited("{", "}", ";", parse_expression);
+    if (prog.length == 0) return FALSE;
+    if (prog.length == 1) return prog[0];
+    return { type: "arduino", prog: prog };
+  }
   function parse_bool() {
     return {
       type: "bool",
@@ -138,6 +143,10 @@ export function parse(input) {
       if (is_kw("func") || is_kw("@")) {
         input.next();
         return parse_func();
+      }
+      if (is_kw("arduino")) {
+        input.next();
+        return parse_arduino_start();
       }
       var tok = input.next();
       if (tok.type == "var" || tok.type == "num" || tok.type == "str")
