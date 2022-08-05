@@ -1,9 +1,13 @@
 #!/usr/bin/env node
-import { parse } from "./functions/parser.js";
-import { TokenStream } from "./functions/tokenStream.js";
-import { InputStream } from "./functions/inputStream.js";
-var code = "";
+import fs from "fs"; // Import's file system manager
+import five from "johnny-five"; //Johnny-five is our arduino bridge
+import chalk from "chalk"; // Chalk.js for coloring the terminal when needed (used in some -g function)
 
+import { applyOperator } from "./functions/applyOperators.js";
+import { parse } from "./functions/parser.js"; // That's our parser
+import { TokenStream } from "./functions/tokenStream.js"; // That's our tokenizer
+import { InputStream } from "./functions/inputStream.js"; // That's our code "reader"
+import { globalFunctions } from "./functions/globals.js"; // That's our global functions
 class Environment {
   constructor(parent) {
     this.vars = Object.create(parent ? parent.vars : null);
@@ -49,7 +53,7 @@ function evaluate(exp, env) {
       return env.set(exp.left.value, evaluate(exp.right, env));
 
     case "binary":
-      return apply_op(
+      return applyOperator(
         exp.operator,
         evaluate(exp.left, env),
         evaluate(exp.right, env)
@@ -87,47 +91,6 @@ function evaluate(exp, env) {
   }
 }
 
-function apply_op(op, a, b) {
-  function num(x) {
-    if (typeof x != "number")
-      throw new Error("Deu zebra! \n expected number but got " + x);
-    return x;
-  }
-  function div(x) {
-    if (num(x) == 0) throw new Error("Divide by zero");
-    return x;
-  }
-  switch (op) {
-    case "+":
-      return num(a) + num(b);
-    case "-":
-      return num(a) - num(b);
-    case "*":
-      return num(a) * num(b);
-    case "/":
-      return num(a) / div(b);
-    case "%":
-      return num(a) % div(b);
-    case "&&":
-      return a !== false && b;
-    case "||":
-      return a !== false ? a : b;
-    case "<":
-      return num(a) < num(b);
-    case ">":
-      return num(a) > num(b);
-    case "<=":
-      return num(a) <= num(b);
-    case ">=":
-      return num(a) >= num(b);
-    case "==":
-      return a === b;
-    case "!=":
-      return a !== b;
-  }
-  throw new Error("Can't apply operator " + op);
-}
-
 function make_func(env, exp) {
   function func() {
     var names = exp.vars;
@@ -139,11 +102,8 @@ function make_func(env, exp) {
   return func;
 }
 
-import five from "johnny-five";
-
 function make_arduino_env(env, exp) {
   function arduino() {
-    var scope = env.extend();
     var functions = exp.prog;
 
     functions.forEach((func) => {
@@ -154,56 +114,19 @@ function make_arduino_env(env, exp) {
 }
 
 /* -----[ global function in zebra ]----- */
+var code = ""; // Needed for storing the full code in a variable, don't remove!
+var globalEnv = new Environment(); // Our global environment
 
-import fs from "fs";
-import chalk from "chalk";
-
-import * as readline from "readline";
-
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-var globalEnv = new Environment();
-
-globalEnv.def("heehaw", function (val) {
-  return console.log(val);
-});
-
-globalEnv.def("zebra", function () {
-  return console.log(`
-      you called the ${
-        chalk.bgWhite.black("Z") +
-        chalk.bgBlack.white.bold("E") +
-        chalk.bgWhite.black("B") +
-        chalk.bgBlack.white.bold("R") +
-        chalk.bgWhite.black("A")
-      }!
-      _,,
-      "-.\\=
-         \\\\=   _.~
-        _|/||||)_
-        \\\        \\\
-     
-      `);
-});
-
-globalEnv.def("lion", () => {
-  process.exit();
-});
-
-globalEnv.def("ledOn", (pin) => {
-  console.log("added led with pin" + pin);
-  let led = new five.Led(pin).on();
-});
-
-globalEnv.def("ledOff", (pin) => {
-  console.log("removed led with pin" + pin);
-  let led = new five.Led(pin).off();
+globalFunctions.forEach((func) => {
+  globalEnv.def(func.name, func);
 });
 
 // ==================================================================== //
+import readline from "readline";
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 // process argv 2 in this case is the file name or path
 if (process.argv[2]) {
