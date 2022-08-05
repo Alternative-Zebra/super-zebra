@@ -1,9 +1,12 @@
 {
-  "name": "syntactic-zebra",
+  "name": "@snow-sr-maintainer/super-zebra",
   "version": "0.0.1",
   "description": "A micro-programming language, assembled in Javascript, Runned in Node (or bun!)",
   "main": "zebra.js",
   "type": "module",
+  "bin": {
+    "zebra": "zebra.js"
+  },
   "scripts": {
     "dev": "node zebra.js",
     "test": "echo 'num1 -> 19; num2 -> 9; heehaw(num1 - num2); zebra()' | node zebra.js/ "
@@ -18,5 +21,14 @@
     "fs": "^0.0.1-security",
     "johnny-five": "^2.1.0",
     "readline": "^1.3.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alternative-Zebra/super-zebra.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Alternative-Zebra/super-zebra/issues"
+  },
+  "homepage": "https://github.com/Alternative-Zebra/super-zebra#readme"
 }
