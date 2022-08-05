@@ -29,7 +29,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.superzebra",
-					"match": "/teste|@|heehaw|zebra|then|else|if|true|false|lion|teste/"
+					"match": "/teste|@|arduino|heehaw|zebra|then|else|if|true|false|lion|teste/"
 				}
 			]
 		},
