@@ -1,8 +1,9 @@
+#!/usr/bin/env node
 import { parse } from "./functions/parser.js";
 import { TokenStream } from "./functions/tokenStream.js";
 import { InputStream } from "./functions/inputStream.js";
 var code = "";
-var FUNCTIONS = [];
+
 class Environment {
   constructor(parent) {
     this.vars = Object.create(parent ? parent.vars : null);
