@@ -3,11 +3,11 @@ import fs from "fs"; // Import's file system manager
 import five from "johnny-five"; //Johnny-five is our arduino bridge
 import chalk from "chalk"; // Chalk.js for coloring the terminal when needed (used in some -g function)
 
-import { applyOperator } from "./functions/applyOperators.js";
-import { parse } from "./functions/parser.js"; // That's our parser
-import { TokenStream } from "./functions/tokenStream.js"; // That's our tokenizer
-import { InputStream } from "./functions/inputStream.js"; // That's our code "reader"
-import { globalFunctions } from "./functions/globals.js"; // That's our global functions
+import { applyOperator } from "./functions/core/applyOperators.js";
+import { parse } from "./functions/core/parser.js"; // That's our parser
+import { TokenStream } from "./functions/core/tokenStream.js"; // That's our tokenizer
+import { InputStream } from "./functions/core/inputStream.js"; // That's our code "reader"
+import { globalFunctions } from "./functions/core/globals.js"; // That's our global functions
 class Environment {
   constructor(parent) {
     this.vars = Object.create(parent ? parent.vars : null);
