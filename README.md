@@ -9,4 +9,4 @@ A sintaxe da nossa linguagem é simples, tal qual como ela:
 
 
 ### Vou deixar isso aqui por que essa imagem é genial.
-![FZkOMAUXoAAg-0F](https://user-images.githubusercontent.com/58995549/183305015-a9586389-025d-4a7f-80c6-8904605f6992.jpeg)
+![super-zebra](https://user-images.githubusercontent.com/58995549/183305302-8c5779ff-9396-4f0c-80f5-cb165fd6ed0d.png)
