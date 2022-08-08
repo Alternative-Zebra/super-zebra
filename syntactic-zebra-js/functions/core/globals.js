@@ -14,6 +14,14 @@ const ledToggle = (pin) => {
   let led = new five.Led(pin).toggle();
 };
 
+const dPinOn = (pin) => {
+  let digitalPin = new five.Pin(pin).high();
+};
+
+const dPinOff = (pin) => {
+  let digitalPin = new five.Pin(pin).low();
+};
+
 /*-----------[end arduino functions]---------------*/
 
 // Test-related functions
