@@ -23,10 +23,9 @@ const dPinOff = (pin) => {
 };
 
 /*-----------[end arduino functions]---------------*/
-
 // Test-related functions
 
-const testResult = (val, aiming) => {
+const test = (val, aiming) => {
   if (val === aiming) {
     console.log(
       chalk.green("Test returned the correct value " + val + "/" + aiming)
@@ -61,9 +60,13 @@ const heehaw = (val) => {
   console.log(val);
 };
 
-const reversedHeehaw = (val) => {
+const waheeh = (val) => {
   console.log(val.split("").reverse().join(""));
 };
+
+const clear = () => {
+  console.clear();
+}
 
 export var globalFunctions = [
   ledOn,
@@ -72,5 +75,7 @@ export var globalFunctions = [
   lion,
   zebra,
   heehaw,
-  reversedHeehaw,
+  waheeh,
+  clear,
+  test
 ];
