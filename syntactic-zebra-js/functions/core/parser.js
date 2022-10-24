@@ -106,6 +106,12 @@ export function parse(input) {
     }
     return ret;
   }
+  function parse_array() {
+    return {
+      type: "array",
+      array: delimited("[", "]", ",", parse_expression),
+    };
+  }
   function parse_func() {
     return {
       type: "func",
@@ -138,6 +144,7 @@ export function parse(input) {
         return exp;
       }
       if (is_punc("{")) return parse_prog();
+      if (is_punc("[")) return parse_array();
       if (is_kw("if")) return parse_if();
       if (is_kw("true") || is_kw("false")) return parse_bool();
       if (is_kw("func") || is_kw("@")) {
