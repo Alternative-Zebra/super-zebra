@@ -107,9 +107,25 @@ export function parse(input) {
     return ret;
   }
   function parse_array() {
+    // for every item in array, generate a var with the name of the array + index
+    // and assign the value of the item to it
+    // then return the array
+    var array = delimited("[", "]", ",", parse_expression);
+    var arrayName = "array";
+    var arrayLength = array.length;
+    var arrayVars = [];
+    for (var i = 0; i < arrayLength; i++) {
+      arrayVars.push({
+        type: "var",
+        value: array[i].value,
+        name: arrayName + "!" + i,
+      });
+    }
+
     return {
       type: "array",
-      array: delimited("[", "]", ",", parse_expression),
+      array: array,
+      arrayVars: arrayVars,
     };
   }
   function parse_func() {

@@ -1,0 +1,5 @@
+let -> [1, 2];
+
+heehaw(let);
+
+heehaw(array!1 + array!0);

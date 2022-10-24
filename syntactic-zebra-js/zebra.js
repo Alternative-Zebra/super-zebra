@@ -48,7 +48,10 @@ function evaluate(exp, env) {
       return env.get(exp.value);
 
     case "array":
-      return exp.array.map((item) => evaluate(item, env)); // This gets every item in the array, than evaluates
+      exp.arrayVars.forEach((variable) => {
+        env.def(variable.name, variable.value);
+      });
+      return;
 
     case "assign":
       if (exp.left.type != "var")
@@ -146,7 +149,9 @@ if (process.argv[2]) {
 function consoleProgramming() {
   rl.question("zebra> ", (code) => {
     if (code.includes("arduino")) {
-      console.log("Can't use arduino expressions when using the console programming mode");
+      console.log(
+        "Can't use arduino expressions when using the console programming mode"
+      );
       process.exit();
     }
     run(code);
