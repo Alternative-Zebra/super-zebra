@@ -27,6 +27,9 @@ class Environment {
     if (name in this.vars) return this.vars[name];
     throw new Error("Undefined variable " + name);
   }
+  getAllVars() {
+    return this.vars;
+  }
   set(name, value) {
     var scope = this.lookup(name);
     if (!scope && this.parent) throw new Error("Undefined variable " + name);
@@ -51,6 +54,10 @@ function evaluate(exp, env) {
       exp.arrayVars.forEach((variable) => {
         env.def(variable.name, variable.value);
       });
+      return;
+
+    case "array_add":
+      env.def(exp.item.name, exp.item.value);
       return;
 
     case "assign":
