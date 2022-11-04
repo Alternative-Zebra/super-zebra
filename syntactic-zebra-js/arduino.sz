@@ -1,7 +1,6 @@
-isOn -> true;
+isOn -> false;
 
 arduino {
-   heehaw("hey there!");
    if (isOn == true) {
     ledOff(12);
     ledOn(13);

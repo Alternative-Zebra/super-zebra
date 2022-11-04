@@ -106,7 +106,7 @@ function evaluate(exp, env) {
 
 function make_func(env, exp) {
   function func() {
-    var names = exp.vars;
+    var names =  exp.vars;
     var scope = env.extend();
     for (var i = 0; i < names.length; ++i)
       scope.def(names[i], i < arguments.length ? arguments[i] : false);

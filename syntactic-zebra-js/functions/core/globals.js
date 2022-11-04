@@ -1,5 +1,5 @@
-import fs from "fs";
 import chalk from "chalk";
+import five from "johnny-five"
 
 /*-----------[arduino functions]---------------*/
 const ledOn = (pin) => {
