@@ -1,6 +1,6 @@
 {
   "name": "@snow-sr-maintainer/super-zebra",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A micro-programming language, assembled in Javascript, Runned in Node (or bun!)",
   "main": "zebra.js",
   "type": "module",
