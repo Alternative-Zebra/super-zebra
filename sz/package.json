@@ -2,7 +2,7 @@
     "name": "sz",
     "displayName": "SuperZebra",
     "description": "Colorizer for zebra!",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "author": "João Felipi Cardoso",
     "publisher": "snow-sr",
     "repository": {
@@ -38,6 +38,12 @@
                 "language": "superzebra",
                 "scopeName": "source.sz",
                 "path": "./syntaxes/superzebra.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "superzebra",
+                "path": "./snippets/superzebra.json"
             }
         ]
     }

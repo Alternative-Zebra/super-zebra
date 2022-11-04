@@ -27,6 +27,9 @@ class Environment {
     if (name in this.vars) return this.vars[name];
     throw new Error("Undefined variable " + name);
   }
+  getAllVars() {
+    return this.vars;
+  }
   set(name, value) {
     var scope = this.lookup(name);
     if (!scope && this.parent) throw new Error("Undefined variable " + name);
@@ -46,6 +49,16 @@ function evaluate(exp, env) {
 
     case "var":
       return env.get(exp.value);
+
+    case "array":
+      exp.arrayVars.forEach((variable) => {
+        env.def(variable.name, variable.value);
+      });
+      return;
+
+    case "array_add":
+      env.def(exp.item.name, exp.item.value);
+      return;
 
     case "assign":
       if (exp.left.type != "var")
@@ -136,13 +149,16 @@ if (process.argv[2]) {
     run(code);
   });
 } else {
+  console.clear();
   consoleProgramming();
 }
 
 function consoleProgramming() {
   rl.question("zebra> ", (code) => {
     if (code.includes("arduino")) {
-      console.log("Can't use arduino expressions when using the console");
+      console.log(
+        "Can't use arduino expressions when using the console programming mode"
+      );
       process.exit();
     }
     run(code);

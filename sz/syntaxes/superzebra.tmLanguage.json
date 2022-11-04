@@ -22,6 +22,15 @@
 		},
 		{
 			"include": "#variables"
+		},
+		{
+			"include": "#punctuation"
+		},
+		{
+			"include": "#whitespace"
+		},
+		{
+			"include": "#identifiers"
 		}
 	],
 	"repository": {
@@ -62,6 +71,10 @@
 			"match": "\\b(?<!\\.)[A-Za-z_]\\w*\\b"
 		},
 		"variables": {
+			"name": "variable.other.superzebra",
+			"match": "\\b(?<!\\.)[A-Za-z_]\\w*\\b"
+		},
+		"identifiers": {
 			"name": "variable.other.superzebra",
 			"match": "\\b(?<!\\.)[A-Za-z_]\\w*\\b"
 		}

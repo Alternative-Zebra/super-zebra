@@ -1,6 +1,6 @@
 export function TokenStream(input) {
   var current = null;
-  var keywords = " arduino ard if then else kick @ true false ";
+  var keywords = " arduino ard add to if then else list kick @ true false ";
   return {
     next: next,
     peek: peek,

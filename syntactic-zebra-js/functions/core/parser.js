@@ -106,6 +106,39 @@ export function parse(input) {
     }
     return ret;
   }
+  function parse_array() {
+    // for every item in array, generate a var with the name of the array + index
+    // and assign the value of the item to it
+    // then return the array
+
+    var array = delimited("[", "]", ",", parse_expression);
+    var arrayName = "array";
+    var arrayLength = array.length;
+    var arrayVars = [];
+    for (var i = 0; i < arrayLength; i++) {
+      arrayVars.push({
+        type: "var",
+        value: array[i].value,
+        name: arrayName + "!" + i,
+      });
+    }
+
+    return {
+      type: "array",
+      array: array,
+      arrayVars: arrayVars,
+    };
+  }
+  function parse_array_add() {
+    skip_kw("add");
+    var array = parse_expression();
+    var item = parse_expression();
+    return {
+      type: "array_add",
+      array: "array",
+      item: item,
+    };
+  }
   function parse_func() {
     return {
       type: "func",
@@ -138,6 +171,8 @@ export function parse(input) {
         return exp;
       }
       if (is_punc("{")) return parse_prog();
+      if (is_punc("[")) return parse_array();
+      if (is_kw("add")) return parse_array_add();
       if (is_kw("if")) return parse_if();
       if (is_kw("true") || is_kw("false")) return parse_bool();
       if (is_kw("func") || is_kw("@")) {

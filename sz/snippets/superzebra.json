@@ -1,0 +1,83 @@
+{
+    "heehaw": {
+        "prefix": [
+            "hee",
+            "haw"
+        ],
+        "description": "Hee Haw! Prints something on the screen",
+        "body": [
+            "heehaw();"
+        ]
+    },
+    "arduino": {
+        "prefix": [
+            "ard",
+            "arduino"
+        ],
+        "description": "Makes an connection to arduino",
+        "body": [
+            "arduino{\n\n};"
+        ]
+    },
+    "function": {
+        "prefix": [
+            "@",
+            "function",
+            "fun"
+        ],
+        "description": "Creates a function",
+        "body": [
+            "${1:name} -> @(${2:arguments}){\n\t$0\n};"
+        ]
+    },
+    "if": {
+        "prefix": [
+            "if"
+        ],
+        "description": "Creates an if statement",
+        "body": [
+            "if(${1:condition}){\n\t$0\n};"
+        ]
+    },
+    "ifelse": {
+        "prefix": [
+            "ife",
+            "ifelse"
+        ],
+        "description": "Creates an if else statement",
+        "body": [
+            "if(${1:condition}){\n\t$0\n}else{\n\t\n};"
+        ]
+    },
+    "var": {
+        "prefix": [
+            "var"
+        ],
+        "description": "Creates a variable",
+        "body": [
+            "${1:name} -> ${2:value};"
+        ]
+    },
+    "lion": {
+        "prefix": [
+            "lion",
+            "lio",
+            "exit"
+        ],
+        "description": "Kill the process",
+        "body": [
+            "lion();"
+        ]
+    },
+    "authored": {
+        "prefix": [
+            "authored",
+            "auth",
+            "init"
+        ],
+        "description": "Creates an author",
+        "body": [
+            "#packet: ${1:packetName} \n#author: ${2:name}\n#version: ${3:version} \n#description: ${4:description}"
+        ]
+    }
+}
