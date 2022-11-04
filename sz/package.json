@@ -39,6 +39,12 @@
                 "scopeName": "source.sz",
                 "path": "./syntaxes/superzebra.tmLanguage.json"
             }
+        ],
+        "snippets": [
+            {
+                "language": "superzebra",
+                "path": "./snippets/superzebra.json"
+            }
         ]
     }
 }
